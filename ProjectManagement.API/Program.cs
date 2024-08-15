@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using ProjectManagement.BLL.Interfaces;
 using ProjectManagement.BLL.Services;
