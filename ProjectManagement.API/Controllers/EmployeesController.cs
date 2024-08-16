@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjectManagement.API.Requests;
 using ProjectManagement.BLL.Interfaces;
+using ProjectManagement.BLL.Services;
 using ProjectManagement.DAL.Models;
 
 namespace ProjectManagement.API.Controllers
@@ -31,6 +32,23 @@ namespace ProjectManagement.API.Controllers
         {
             var employees = await _employeeService.GetAllEmployeesAsync();
             return Ok(employees);
+        }
+
+        /// <summary>
+        /// Получить сотрудника по id.
+        /// </summary>
+        /// <returns>Результат выполнения операции.</returns>
+        /// <resopnse code="200">Успешное выполнение операции.</resopnse>
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Employee>> GetEmployeeById(int id)
+        {
+            var employee = await _employeeService.GetEmployeeByIdAsync(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            return Ok(employee);
+
         }
     }
 }

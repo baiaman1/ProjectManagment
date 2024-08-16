@@ -18,5 +18,17 @@ namespace ProjectManagement.BLL.Services
         {
             return await _context.Employees.ToListAsync();
         }
+
+        public async Task<Employee> GetEmployeeByIdAsync(int id)
+        {
+            return await _context.Employees.FindAsync(id);
+        }
+
+        public async Task<Employee> CreateEmployeeAsync(Employee employee)
+        {
+            _context.Employees.AddAsync(employee);
+            await _context.SaveChangesAsync();
+            return employee;
+        }
     }
 }
