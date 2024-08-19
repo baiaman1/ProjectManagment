@@ -18,12 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\Employees\" />
+    <ProjectReference Include="..\ProjectManagement.BLL\ProjectManagement.BLL.csproj" />
+    <ProjectReference Include="..\ProjectManagement.DAL\ProjectManagement.DAL.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProjectManagement.BLL\ProjectManagement.BLL.csproj" />
-    <ProjectReference Include="..\ProjectManagement.DAL\ProjectManagement.DAL.csproj" />
+    <Folder Include="Requests\Employees\" />
   </ItemGroup>
 
 </Project>

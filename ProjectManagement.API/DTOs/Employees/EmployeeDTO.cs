@@ -1,6 +1,6 @@
-﻿namespace ProjectManagement.API.Requests.Employees
+﻿namespace ProjectManagement.API.DTOs.Employees
 {
-    public class CreateEmployeeRequest
+    public class EmployeeDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

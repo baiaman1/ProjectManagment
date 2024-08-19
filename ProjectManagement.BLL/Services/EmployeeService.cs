@@ -26,7 +26,14 @@ namespace ProjectManagement.BLL.Services
 
         public async Task<Employee> CreateEmployeeAsync(Employee employee)
         {
-            _context.Employees.AddAsync(employee);
+            await _context.Employees.AddAsync(employee);
+            await _context.SaveChangesAsync();
+            return employee;
+        }
+
+        public async Task<Employee> UpdateEmployeeAsync(Employee employee)
+        {
+            _context.Employees.Update(employee);
             await _context.SaveChangesAsync();
             return employee;
         }
