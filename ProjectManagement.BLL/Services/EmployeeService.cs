@@ -37,5 +37,15 @@ namespace ProjectManagement.BLL.Services
             await _context.SaveChangesAsync();
             return employee;
         }
+
+        public async Task<Employee> DeleteEmployeeAsync(int id)
+        {
+            var employee = _context.Employees.Find(id);
+            if (employee == null) throw new Exception($"Employee with ID {id} not found.");
+            _context.Employees.Remove(employee);
+            await _context.SaveChangesAsync();
+            return employee;
+
+        }
     }
 }

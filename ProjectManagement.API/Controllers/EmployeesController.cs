@@ -17,6 +17,9 @@ namespace ProjectManagement.API.Controllers
     public class EmployeesController : ControllerBase
     {
         private readonly IEmployeeService _employeeService;
+        /// <summary>
+        /// Контроллер, для работы с сотрудниками.
+        /// </summary>
         public EmployeesController(IEmployeeService employeeService)
         {
             _employeeService = employeeService;
@@ -98,6 +101,19 @@ namespace ProjectManagement.API.Controllers
 
             await _employeeService.UpdateEmployeeAsync(existEmployee);
             return Ok(existEmployee);
+        }
+
+        /// <summary>
+        /// Удалить сотрудника.
+        /// </summary>
+        /// <returns>Результат выполнения операции.</returns>
+        /// <resopnse code="200">Успешное выполнение операции.</resopnse>
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Employee>> DeleteEmployee(int id)
+        {
+            var deleted = await _employeeService.DeleteEmployeeAsync(id);
+            if (deleted == null) return null;
+            return Ok(deleted);
         }
     }
 }
